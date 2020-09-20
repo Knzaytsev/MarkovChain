@@ -7,7 +7,10 @@ namespace MarkovChain
         static void Main(string[] args)
         {
             var pipeline = new PipeLine(new OneWordChain(), new FileReader());
-            pipeline.ReadText(@"");
+            pipeline.ReadText(@"C:\Users\adugeen\Desktop\Для себя\Цепь Маркова\MarkovChain\124916.txt");
+            pipeline.ReadText(@"C:\Users\adugeen\Desktop\Для себя\Цепь Маркова\MarkovChain\test.txt");
+            pipeline.ReadText(@"C:\Users\adugeen\Desktop\Для себя\Цепь Маркова\MarkovChain\144733.txt");
+            pipeline.ReadText(@"C:\Users\adugeen\Desktop\Для себя\Цепь Маркова\MarkovChain\58197757.txt");
 
             do
             {

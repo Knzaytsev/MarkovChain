@@ -12,7 +12,15 @@ namespace MarkovChain
             var text = "";
             using (var fs = new StreamReader(str))
             {
-                text = fs.ReadLine();
+                while (!fs.EndOfStream)
+                {
+                    var curStr = "";
+                    curStr = fs.ReadLine();
+                    if (curStr == "")
+                        continue;
+                    text += " " + curStr;
+                }
+                //text = fs.ReadLine();
             }
             if (isLower)
             {

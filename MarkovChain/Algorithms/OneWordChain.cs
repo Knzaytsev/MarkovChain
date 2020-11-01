@@ -6,10 +6,14 @@ namespace MarkovChain
 {
     class OneWordChain : IMarkovChain
     {
+
         private Dictionary<string, List<string>> dict = new Dictionary<string, List<string>>();
         private string sentence = "";
+        private IRandomWord gettingWordAlgorithm;
 
         public string Sentence { get { return sentence; } }
+
+        public IRandomWord GettingWordAlgorithm { set => gettingWordAlgorithm = value; }
 
         public OneWordChain()
         {
@@ -46,7 +50,7 @@ namespace MarkovChain
             do
             {
                 var list = dict[word];
-                word = list[rnd.Next(0, list.Count)];
+                word = gettingWordAlgorithm.GetWord(list);
                 sentence += " " + word;
             } while (word != "END");
             sentence = sentence.Replace(" END", ".");

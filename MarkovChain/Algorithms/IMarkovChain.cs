@@ -6,6 +6,8 @@ namespace MarkovChain
 {
     interface IMarkovChain
     {
+        IRandomWord GettingWordAlgorithm { set; }
+
         void MakeChain();
 
         void ReadText(string text);

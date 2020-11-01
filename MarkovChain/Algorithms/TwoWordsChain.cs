@@ -9,7 +9,11 @@ namespace MarkovChain
         private Dictionary<(string, string), List<string>> dict = 
             new Dictionary<(string, string), List<string>>();
         private string sentence = "";
+        private IRandomWord gettingWordAlgorithm;
+
         public string Sentence { get { return sentence; } }
+
+        public IRandomWord GettingWordAlgorithm { set => gettingWordAlgorithm = value; }
 
         public void ReadText(string text)
         {
@@ -39,7 +43,7 @@ namespace MarkovChain
             sentence = words.Item2;
             do
             {
-                var word = dict[words][rnd.Next(0, dict[words].Count)];
+                var word = gettingWordAlgorithm.GetWord(dict[words]);
                 words.Item1 = words.Item2;
                 words.Item2 = word;
                 sentence += " " + words.Item2;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarkovChain.Words;
+using System;
 
 namespace MarkovChain
 {
@@ -6,8 +7,8 @@ namespace MarkovChain
     {
         static void Main(string[] args)
         {
-            var pipeline = new PipeLine(new OneWordChain(), new FileReader());
-            pipeline.ReadText(@"");
+            var pipeline = new PipeLine(new TwoWordsChain(), new FileReader(), new ProbabilisticWord());
+            pipeline.ReadText(@"", true);
 
             do
             {
